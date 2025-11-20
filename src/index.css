@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Monocromático: gris + azul marino */
+:root {
+  --navy:#14273d; /* azul marino principal */
+  --gray-light:#f1f2f3; /* gris claro base */
+  --gray-mid:#d4d6d8; /* gris medio para degradado */
+  --gray-dark:#2b2f33; /* texto gris oscuro */
+  --bone-hover:#f5f4f1; /* "hueso" sutil para haptics */
+}
+
+body {
+  background: linear-gradient(180deg,var(--gray-light),var(--gray-mid));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+  color: var(--gray-dark);
+}
+
+/* Header professional modern typography */
+header {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+}
+header h1 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+  letter-spacing: -0.5px;
+}
+header p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Estilos minimalistas profesionales */
+input:focus, select:focus {
+  transform: translateY(-1px);
+}
+
+/* Paleta de colores del CV de Bernardo */
+.bg-primary { background-color: var(--navy); }
+
+.text-primary { color: var(--navy); }
+
+.border-primary { border-color: var(--navy); }
+
+.bg-accent { background-color: var(--navy); }
+
+.text-accent { color: var(--navy); }
+
+/* Icon haptics & interactive subtle hover */
+.icon-hover, .icon-hover svg, button svg {
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+.icon-hover:hover, button:hover svg, .icon-hover:focus {
+  background-color: var(--bone-hover);
+  color: var(--navy);
+}
+
+/* Step badge unified style */
+.badge-step {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: .5px;
+  border-radius: .6rem;
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 2px 4px rgba(20,39,61,.25);
+  transition: background .2s ease, transform .15s ease;
+}
+.badge-step:hover { background: #1a3752; }
+.badge-step:active { transform: scale(.95); }
+
+/* Variant outline (if needed in future) */
+.badge-step-outline {
+  background: linear-gradient(#f7f8f9,#ebecee);
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  box-shadow: 0 1px 2px rgba(20,39,61,.2);
+}
+
+/* Uniform headings color and modern typography */
+h1,h2,h3,h4,h5,h6 { 
+  color: var(--gray-dark);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+  letter-spacing: -0.3px;
+}
+
+/* Panels remain white but subtle border for consistency */
+.panel-flat { background:#fff; border:1px solid #e2e4e6; }
+
+/* Inputs / selects unified monochrome */
+input, select, textarea { color: var(--gray-dark); }
+input::placeholder, textarea::placeholder { color:#8a8d90; }
+input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 2px rgba(20,39,61,.15); }
+
+/* Scrollbar subtle (Webkit) */
+::-webkit-scrollbar { width:10px; }
+::-webkit-scrollbar-track { background: var(--gray-light); }
+::-webkit-scrollbar-thumb { background: var(--gray-mid); border-radius:6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--navy); }
+
+/* Monochrome alert & selection utilities */
+.missing-field {
+  border:2px solid var(--navy) !important;
+  background:linear-gradient(135deg,#f7f8f9,#e4e6ea) !important;
+  color:var(--gray-dark) !important;
+}
+.critical-field {
+  border:2px solid var(--navy) !important;
+  background:linear-gradient(135deg,#fff,#e9eef2) !important;
+  position:relative;
+}
+.critical-field::after {
+  content:'⚠';
+  position:absolute; top:4px; right:6px; font-size:.65rem; color:var(--navy);
+}
+.option-btn {
+  background:#fff;
+  border:1px solid #cdd1d5;
+  color:var(--gray-dark);
+  font-weight:600;
+  transition:.18s ease;
+}
+.option-btn:hover { background:linear-gradient(#f7f8f9,#eceff1); border-color:var(--navy); }
+.option-btn-selected {
+  background:var(--navy); color:#fff; border:1px solid var(--navy);
+  box-shadow:0 2px 6px rgba(20,39,61,.3);
+}
+.pill-small { font-size:.55rem; letter-spacing:.5px; text-transform:uppercase; }
+
+/* Compact table cells for modal summary */
+.summary-cell { background:#fff; border:1px solid #d7dadc; border-radius:4px; padding:2px 4px; }
