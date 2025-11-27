@@ -2,31 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Monocromático: gris + azul marino */
+/* PetroOriental S.A. - Paleta Verde Agua (Inspirada en Flor de Loto) */
 :root {
-  --navy:#14273d; /* azul marino principal */
-  --gray-light:#f1f2f3; /* gris claro base */
-  --gray-mid:#d4d6d8; /* gris medio para degradado */
-  --gray-dark:#2b2f33; /* texto gris oscuro */
-  --bone-hover:#f5f4f1; /* "hueso" sutil para haptics */
+  /* Verdes principales - Del más claro al más oscuro */
+  --aqua-light: #d4f1e8;      /* Verde agua muy claro - fondos suaves */
+  --aqua-base: #7bc8a4;        /* Verde agua medio - elementos principales */
+  --aqua-mid: #4fa384;         /* Verde agua medio-oscuro - acentos */
+  --forest: #2d6b5a;           /* Verde bosque - headers y textos importantes */
+  --forest-dark: #1a3d32;      /* Verde oscuro profundo - textos y contraste */
+  
+  /* Tonos complementarios para contraste visual */
+  --cream: #f8faf9;            /* Crema suave - fondos de formularios */
+  --sage: #e8f3ee;             /* Salvia claro - secciones alternas */
+  --moss: #95d5b2;             /* Musgo claro - estados hover */
 }
 
 body {
-  background: linear-gradient(180deg,var(--gray-light),var(--gray-mid));
+  background: linear-gradient(180deg, var(--cream), var(--sage));
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
-  color: var(--gray-dark);
+  color: var(--forest-dark);
+  line-height: 1.6;
 }
 
 /* Header professional modern typography */
 header {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--aqua-mid) 100%);
 }
 header h1 {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
   letter-spacing: -0.5px;
+  color: white;
 }
 header p {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+  color: var(--aqua-light);
 }
 
 @keyframes fade-in {
@@ -44,32 +54,48 @@ header p {
   animation: fade-in 0.3s ease-out;
 }
 
-/* Estilos minimalistas profesionales */
+/* Estilos minimalistas profesionales - Reducción de fatiga visual */
 input:focus, select:focus {
   transform: translateY(-1px);
+  border-color: var(--aqua-mid);
+  box-shadow: 0 0 0 3px rgba(79, 163, 132, 0.1);
+  outline: none;
 }
 
-/* Paleta de colores del CV de Bernardo */
-.bg-primary { background-color: var(--navy); }
+input, select, textarea {
+  background-color: white;
+  transition: all 0.2s ease;
+}
 
-.text-primary { color: var(--navy); }
+input:hover, select:hover, textarea:hover {
+  background-color: var(--cream);
+  border-color: var(--moss);
+}
 
-.border-primary { border-color: var(--navy); }
+/* Paleta de colores PetroOriental */
+.bg-primary { 
+  background: linear-gradient(135deg, var(--forest) 0%, var(--aqua-mid) 100%);
+}
 
-.bg-accent { background-color: var(--navy); }
+.text-primary { color: var(--forest); }
 
-.text-accent { color: var(--navy); }
+.border-primary { border-color: var(--aqua-mid); }
+
+.bg-accent { background-color: var(--aqua-base); }
+
+.text-accent { color: var(--aqua-mid); }
 
 /* Icon haptics & interactive subtle hover */
 .icon-hover, .icon-hover svg, button svg {
   transition: background-color .2s ease, color .2s ease, transform .15s ease;
 }
 .icon-hover:hover, button:hover svg, .icon-hover:focus {
-  background-color: var(--bone-hover);
-  color: var(--navy);
+  background-color: var(--sage);
+  color: var(--forest);
+  transform: scale(1.05);
 }
 
-/* Step badge unified style */
+/* Step badge unified style - Verde agua */
 .badge-step {
   width: 2.25rem;
   height: 2.25rem;
@@ -80,71 +106,104 @@ input:focus, select:focus {
   font-size: 0.75rem;
   letter-spacing: .5px;
   border-radius: .6rem;
-  background: var(--navy);
+  background: linear-gradient(135deg, var(--forest), var(--aqua-mid));
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 2px 4px rgba(20,39,61,.25);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 2px 4px rgba(45,107,90,.25);
   transition: background .2s ease, transform .15s ease;
 }
-.badge-step:hover { background: #1a3752; }
+.badge-step:hover { 
+  background: linear-gradient(135deg, var(--aqua-mid), var(--aqua-base));
+  transform: scale(1.05);
+}
 .badge-step:active { transform: scale(.95); }
 
 /* Variant outline (if needed in future) */
 .badge-step-outline {
-  background: linear-gradient(#f7f8f9,#ebecee);
-  color: var(--navy);
-  border: 1px solid var(--navy);
-  box-shadow: 0 1px 2px rgba(20,39,61,.2);
+  background: linear-gradient(var(--cream), var(--sage));
+  color: var(--forest);
+  border: 2px solid var(--aqua-mid);
+  box-shadow: 0 1px 2px rgba(45,107,90,.2);
 }
 
 /* Uniform headings color and modern typography */
 h1,h2,h3,h4,h5,h6 { 
-  color: var(--gray-dark);
+  color: var(--forest);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
   letter-spacing: -0.3px;
 }
 
 /* Panels remain white but subtle border for consistency */
-.panel-flat { background:#fff; border:1px solid #e2e4e6; }
+.panel-flat { 
+  background: white;
+  border: 1px solid var(--aqua-light);
+  box-shadow: 0 1px 3px rgba(79, 163, 132, 0.08);
+}
 
-/* Inputs / selects unified monochrome */
-input, select, textarea { color: var(--gray-dark); }
-input::placeholder, textarea::placeholder { color:#8a8d90; }
-input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 2px rgba(20,39,61,.15); }
+/* Inputs / selects unified verde agua */
+input, select, textarea { 
+  color: var(--forest-dark);
+  border: 1px solid var(--aqua-light);
+}
+input::placeholder, textarea::placeholder { color: #8a9c94; }
+input:focus, select:focus, textarea:focus { 
+  border-color: var(--aqua-mid);
+  box-shadow: 0 0 0 3px rgba(79, 163, 132, 0.15);
+}
 
-/* Scrollbar subtle (Webkit) */
-::-webkit-scrollbar { width:10px; }
-::-webkit-scrollbar-track { background: var(--gray-light); }
-::-webkit-scrollbar-thumb { background: var(--gray-mid); border-radius:6px; }
-::-webkit-scrollbar-thumb:hover { background: var(--navy); }
+/* Scrollbar subtle (Webkit) - Verde agua */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--sage); }
+::-webkit-scrollbar-thumb { background: var(--aqua-base); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--aqua-mid); }
 
-/* Monochrome alert & selection utilities */
+/* Monochrome alert & selection utilities - Actualizado a verde */
 .missing-field {
-  border:2px solid var(--navy) !important;
-  background:linear-gradient(135deg,#f7f8f9,#e4e6ea) !important;
-  color:var(--gray-dark) !important;
+  border: 2px solid var(--aqua-mid) !important;
+  background: linear-gradient(135deg, var(--cream), var(--sage)) !important;
+  color: var(--forest-dark) !important;
 }
 .critical-field {
-  border:2px solid var(--navy) !important;
-  background:linear-gradient(135deg,#fff,#e9eef2) !important;
-  position:relative;
+  border: 2px solid var(--forest) !important;
+  background: linear-gradient(135deg, #fff, var(--sage)) !important;
+  position: relative;
 }
 .critical-field::after {
-  content:'⚠';
-  position:absolute; top:4px; right:6px; font-size:.65rem; color:var(--navy);
+  content: '⚠';
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: .65rem;
+  color: var(--forest);
 }
 .option-btn {
-  background:#fff;
-  border:1px solid #cdd1d5;
-  color:var(--gray-dark);
-  font-weight:600;
-  transition:.18s ease;
+  background: white;
+  border: 1px solid var(--aqua-light);
+  color: var(--forest-dark);
+  font-weight: 600;
+  transition: .18s ease;
 }
-.option-btn:hover { background:linear-gradient(#f7f8f9,#eceff1); border-color:var(--navy); }
+.option-btn:hover {
+  background: linear-gradient(var(--cream), var(--sage));
+  border-color: var(--aqua-mid);
+  transform: translateY(-1px);
+}
 .option-btn-selected {
-  background:var(--navy); color:#fff; border:1px solid var(--navy);
-  box-shadow:0 2px 6px rgba(20,39,61,.3);
+  background: linear-gradient(135deg, var(--forest), var(--aqua-mid));
+  color: white;
+  border: 1px solid var(--forest);
+  box-shadow: 0 2px 6px rgba(45, 107, 90, 0.3);
 }
-.pill-small { font-size:.55rem; letter-spacing:.5px; text-transform:uppercase; }
+.pill-small {
+  font-size: .55rem;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--forest);
+}
 
 /* Compact table cells for modal summary */
-.summary-cell { background:#fff; border:1px solid #d7dadc; border-radius:4px; padding:2px 4px; }
+.summary-cell {
+  background: white;
+  border: 1px solid var(--aqua-light);
+  border-radius: 4px;
+  padding: 2px 4px;
+}

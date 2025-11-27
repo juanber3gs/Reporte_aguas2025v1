@@ -1,7 +1,7 @@
-# 📊 REPORTE DE AVANCE - SISTEMA REPORTE DIARIO GPOWER
+# 📊 REPORTE DE AVANCE - SISTEMA REPORTE DIARIO PETROORIENTAL
 
 **Proyecto:** Sistema de Gestión de Reportes Diarios - Tratamiento de Aguas Industriales  
-**Cliente:** CAMI - Gpower  
+**Cliente:** PetroOriental S.A.  
 **Responsable Técnico:** Juan Bernardo Galindo  
 **Fecha de Reporte:** 26 de Noviembre, 2025  
 **Estado General:** ✅ Fase 1 Completada (Frontend + Infraestructura SharePoint)
@@ -10,7 +10,7 @@
 
 ## 📋 RESUMEN EJECUTIVO
 
-Este documento presenta el avance del desarrollo del **Sistema de Reporte Diario de Aguas Industriales** para CAMI Gpower, incluyendo el estado actual de implementación, componentes completados, y próximos pasos para la integración completa.
+Este documento presenta el avance del desarrollo del **Sistema de Reporte Diario de Aguas Industriales** para PetroOriental S.A., incluyendo el estado actual de implementación, componentes completados, y próximos pasos para la integración completa.
 
 ### **Alcance del Proyecto**
 Sistema web para la captura, validación y almacenamiento de datos operativos diarios de tratamiento de aguas industriales, con integración a SharePoint y Power Automate para workflow de aprobaciones.
@@ -24,7 +24,8 @@ Sistema web para la captura, validación y almacenamiento de datos operativos di
 **Demo en Vivo:** https://juanber3gs.github.io/Reporte_aguas2025v1/
 
 **Características Implementadas:**
-- ✅ Interfaz de usuario con branding corporativo (azul marino #14273d + gris)
+- ✅ Interfaz de usuario con branding corporativo PetroOriental (paleta verde agua con gradientes)
+- ✅ Diseño optimizado para reducir fatiga visual durante captura de datos
 - ✅ 5 secciones operacionales completas:
   1. Recepción de Fluidos
   2. Tratamiento Químico
@@ -194,7 +195,7 @@ Error 401 (Unauthorized) al intentar escribir desde Power Automate a SharePoint 
 ## 📞 CONTACTO Y SOPORTE
 
 **Desarrollador:** Juan Bernardo Galindo  
-**Proyecto:** Sistema de Reporte Diario - Tratamiento de Aguas Industriales CAMI Gpower
+**Proyecto:** Sistema de Reporte Diario - Tratamiento de Aguas Industriales PetroOriental S.A.
 
 **Para Dudas o Cambios:**
 - Contacto directo: [AGREGAR EMAIL/TEAMS]

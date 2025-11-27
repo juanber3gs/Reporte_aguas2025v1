@@ -275,9 +275,9 @@ function App() {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-[var(--gray-dark)]">Reporte Diario Gpower</h1>
-              <p className="text-sm text-gray-700 font-semibold">Gestión de Aguas Industriales CAMI · Bloques 14 y 17</p>
-              <p className="text-xs text-gray-500 mt-1">Elaborado y supervisado por: Bernardo Galindo</p>
+              <h1 className="text-3xl font-bold text-white">Reporte Diario PetroOriental</h1>
+              <p className="text-sm text-[var(--aqua-light)] font-semibold">Gestión de Aguas Industriales · Tratamiento y Control</p>
+              <p className="text-xs text-[var(--sage)] mt-1">Elaborado y supervisado por: Juan Bernardo Galindo</p>
             </div>
           </div>
         </div>
