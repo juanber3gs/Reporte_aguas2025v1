@@ -276,8 +276,8 @@ function App() {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-white">Reporte Diario PetroOriental</h1>
-              <p className="text-sm text-[var(--aqua-light)] font-semibold">Gestión de Aguas Industriales · Tratamiento y Control</p>
-              <p className="text-xs text-[var(--sage)] mt-1">Elaborado y supervisado por: Juan Bernardo Galindo</p>
+              <p className="text-lg text-[var(--aqua-light)] font-semibold">Gestión de Aguas Industriales CAMI</p>
+              <p className="text-base text-[var(--sage)] mt-1 font-medium">Elaborado y supervisado por: Bernardo Galindo</p>
             </div>
           </div>
         </div>
