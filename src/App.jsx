@@ -222,8 +222,8 @@ function App() {
     setMostrarResumen(false);
     
     try {
-      // IMPORTANTE: Reemplaza esta URL con la de tu flujo Power Automate
-      const WEBHOOK_URL = "https://prod-00.westus.logic.azure.com/workflows/xxxxx/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxx";
+      // URL del flujo Power Automate - CONFIGURADA
+      const WEBHOOK_URL = "https://defaultb08db26f29d647d18313beeda6a064.a4.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/02405806a4094ac1ab5417b0f6e46df0/triggers/manual/paths/invoke?api-version=1";
       
       if (WEBHOOK_URL.includes("xxxxx")) {
         alert("⚠️ Falta configurar la URL del flujo de Power Automate en el código.\n\nContacta al administrador para obtenerla.");

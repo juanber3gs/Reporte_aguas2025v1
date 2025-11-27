@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Webhook Power Automate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 200px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        button {
+            background: #0078d4;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #005a9e;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Probar Webhook de Power Automate</h1>
+        <p>Usa esta página para enviar datos de prueba a tu flujo de Power Automate sin necesidad de Postman.</p>
+        
+        <label for="webhookUrl">URL del Webhook (copia desde Power Automate):</label>
+        <input 
+            type="text" 
+            id="webhookUrl" 
+            value="https://defaultb08db26f29d647d18313beeda6a064.a4.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/02405806a4094ac1ab5417b0f6e46df0/triggers/manual/paths/invoke?api-version=1"
+        />
+        
+        <label for="jsonData">Datos JSON a enviar:</label>
+        <textarea id="jsonData">{
+  "meta": {
+    "fecha": "2025-11-24",
+    "tecnico": "Juan Bernardo - Prueba"
+  },
+  "recepcion": [
+    {
+      "procedencia": "Campo Norte",
+      "locacion": "LC-001",
+      "transportista": "ATLAS",
+      "placa": "ABC123",
+      "volumen": 150.5
+    },
+    {
+      "procedencia": "Campo Sur",
+      "locacion": "LC-002",
+      "transportista": "TransCargo",
+      "placa": "XYZ789",
+      "volumen": 200.3
+    }
+  ],
+  "quimicos": {
+    "cal": {
+      "inicial": 100,
+      "consumo": 20,
+      "saldo": 80
+    },
+    "sulfato": {
+      "inicial": 50,
+      "consumo": 10,
+      "saldo": 40
+    },
+    "lipesa": {
+      "inicial": 30,
+      "consumo": 5,
+      "saldo": 25
+    }
+  },
+  "piscinas": {
+    "pit1": 75,
+    "ranfla": 80,
+    "api": 60,
+    "pit2Recuperacion": 50,
+    "skimmer": 70,
+    "pit2Control": 65
+  },
+  "recuperacionCrudo": {
+    "volumen": 200,
+    "viajes": 4
+  },
+  "evacuacion": {
+    "crudo": {
+      "volumen": 200,
+      "viajes": 4
+    },
+    "aguaTratada": {
+      "volumen": 150,
+      "viajes": 3,
+      "biocida": 10
+    }
+  }
+}</textarea>
+        
+        <button onclick="enviarPrueba()">🚀 Enviar Prueba</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        async function enviarPrueba() {
+            const url = document.getElementById('webhookUrl').value.trim();
+            const jsonText = document.getElementById('jsonData').value;
+            const resultDiv = document.getElementById('result');
+            
+            // Validar URL
+            if (!url) {
+                mostrarResultado('Por favor ingresa la URL del webhook', false);
+                return;
+            }
+            
+            // Validar JSON
+            let jsonData;
+            try {
+                jsonData = JSON.parse(jsonText);
+            } catch (e) {
+                mostrarResultado('Error en el formato JSON: ' + e.message, false);
+                return;
+            }
+            
+            // Enviar petición
+            try {
+                resultDiv.textContent = '⏳ Enviando datos...';
+                resultDiv.className = 'result';
+                resultDiv.style.display = 'block';
+                
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    mode: 'no-cors',
+                    body: JSON.stringify(jsonData)
+                });
+                
+                // Con no-cors no podemos leer la respuesta, pero el request se envía
+                mostrarResultado('✅ Datos enviados! (Modo no-cors: verifica Power Automate y SharePoint manualmente)', true);
+            } catch (error) {
+                mostrarResultado('❌ Error de conexión: ' + error.message, false);
+            }
+        }
+        
+        function mostrarResultado(mensaje, esExito) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = mensaje;
+            resultDiv.className = 'result ' + (esExito ? 'success' : 'error');
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
