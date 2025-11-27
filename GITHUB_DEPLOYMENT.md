@@ -91,6 +91,34 @@ Total: 2,000+ líneas de documentación que incluyen procedimientos de instalaci
 
 ---
 
+## 📊 AVANCE DEL PROYECTO
+
+### **Progreso por Componente:**
+
+| Componente | Avance | Estado |
+|------------|--------|--------|
+| **Frontend React** | 100% | ✅ Completado |
+| **Infraestructura SharePoint** | 100% | ✅ Completado |
+| **Power Automate Integration** | 40% | 🔄 En Curso |
+| **Documentación Técnica** | 100% | ✅ Completado |
+| **Pruebas End-to-End** | 30% | ⏳ Pendiente |
+| **Dashboard Power BI** | 0% | ⏳ Pendiente |
+| **Capacitación Usuarios** | 0% | ⏳ Pendiente |
+
+### **Avance General del Proyecto:** 
+**67%** (Fase 1 completada - Fase 2 en progreso)
+
+### **Desglose de Trabajo:**
+- ✅ **Completado:** Frontend + SharePoint + Documentación
+- 🔄 **En Curso:** Integración Power Automate (bloqueado por permisos)
+- ⏳ **Pendiente:** Pruebas + Power BI + Capacitación + Go-Live
+
+### **Tiempo Estimado para Completar:**
+- **Escenario Ideal:** 13 días (si permisos se resuelven inmediatamente)
+- **Escenario Real:** 15-20 días (incluyendo validaciones y ajustes)
+
+---
+
 ## 📞 CONTACTO
 
 **Responsable:** Ing. Bernardo Galindo  
